@@ -2,18 +2,18 @@ import React, { useState } from "react";
 
 
 
-function Task({ text, category }) {
+function Task({ text, category, deleteTask }) {
   const [isOnList, setIsOnList] = useState(false)
-  
-  function handleRemoveTaskClick(){
-    setIsOnList((isOnList) => !isOnList);
+  // console.log(text)
+  function handleRemoveTask(){
+    deleteTask(text)
 
   }
   return (
     <div className="task">
       <div className="label">{category}</div>
       <div className="text">{text}</div>
-      <button className="delete" onClick={handleRemoveTaskClick}>X</button>
+      <button className="delete"  onClick={handleRemoveTask}>X</button>
     </div>
   );
 }

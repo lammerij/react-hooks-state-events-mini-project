@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CategoryFilter() {
+function CategoryFilter({CATEGORIES}) {
+  console.log(CATEGORIES)
+  const [listOfCategories, setListOfCategories] = useState(CATEGORIES)
+
+ 
+
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {/* render <button> elements for each category here */}
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
     </div>
   );
 }
