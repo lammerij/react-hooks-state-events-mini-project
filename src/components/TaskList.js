@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CategoryFilter from "./CategoryFilter";
 import Task from "./Task";
 
 function TaskList({ CATEGORIES, TASKS }) {
@@ -13,6 +14,9 @@ function TaskList({ CATEGORIES, TASKS }) {
     setListOfTasks(updatedList);
   }
 
+  
+  
+
   return (
     <div className="tasks">
       {listOfTasks.map((task) => {
@@ -22,8 +26,10 @@ function TaskList({ CATEGORIES, TASKS }) {
             category={task.category}
             deleteTask={deleteTask}
           />
+          
         );
       })}
+      
     </div>
   );
 }
