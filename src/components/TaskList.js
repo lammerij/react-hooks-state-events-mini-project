@@ -2,26 +2,18 @@ import React, { useState } from "react";
 import CategoryFilter from "./CategoryFilter";
 import Task from "./Task";
 
-function TaskList({ CATEGORIES, TASKS }) {
+function TaskList({ filteredTasks, deleteTask, }) {
   // console.log(CATEGORIES, TASKS);
-  const [listOfTasks, setListOfTasks] = useState(TASKS);
-
-  function deleteTask(taskName) {
-    // console.log("task", task)
-    const updatedList = listOfTasks.filter((task) => {
-      return task.text !== taskName;
-    });
-    setListOfTasks(updatedList);
-  }
 
 
   
 
   return (
     <div className="tasks">
-      {listOfTasks.map((task) => {
+      {filteredTasks.map((task) => {
         return (
           <Task
+            key={task.text}
             text={task.text}
             category={task.category}
             deleteTask={deleteTask}
