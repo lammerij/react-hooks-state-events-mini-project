@@ -9,12 +9,12 @@ function TaskList({ CATEGORIES, TASKS }) {
   function deleteTask(taskName) {
     // console.log("task", task)
     const updatedList = listOfTasks.filter((task) => {
-      return task.text != taskName;
+      return task.text !== taskName;
     });
     setListOfTasks(updatedList);
   }
 
-  
+
   
 
   return (
