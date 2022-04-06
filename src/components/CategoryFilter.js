@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-function CategoryFilter({CATEGORIES, selectedCategory, setSelectedCategory}){ 
+function CategoryFilter({CATEGORIES, selectedCategory, setSelectedCategory, filteredTasks}){ 
   const listOfCategories = CATEGORIES.map((category) => {
     const className = category === selectedCategory ? "selected" : null;
     
+
     return (
       <button
         key={category}
         className={className}
         onClick={() => setSelectedCategory(category)}
+        onChange={filteredTasks}
       >
         {category}
       </button>
