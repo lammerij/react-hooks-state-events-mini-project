@@ -15,7 +15,7 @@ function App() {
     if (selectedCategory === "All") return true;
 
     return task.category === selectedCategory;
-  })
+  });
 
   function deleteTask(taskName) {
     // console.log("task", task)
@@ -25,18 +25,35 @@ function App() {
     setTasks(updatedList);
   }
 
+  function onTaskFormSubmit(newTask) {
+    console.log(newTask);
+    setTasks([...tasks, newTask]);
+  }
 
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter 
-      CATEGORIES={CATEGORIES} 
-      selectedCategory={selectedCategory}
-      setSelectedCategory={setSelectedCategory}
-
-       />
-      <NewTaskForm CATEGORIES={CATEGORIES.filter((category) =>{if (selectedCategory === "All") return false; return })} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-      <TaskList filteredTasks={filteredTasks} CATEGORIES={CATEGORIES} tasks={tasks}  deleteTask={deleteTask} />
+      <CategoryFilter
+        CATEGORIES={CATEGORIES}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+      <NewTaskForm
+        CATEGORIES={CATEGORIES.filter((category) => {
+          if (category === "All") return false;
+          return category != "All";
+        })}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        onTaskFormSubmit={onTaskFormSubmit}
+      />
+      <TaskList
+        filteredTasks={filteredTasks}
+        CATEGORIES={CATEGORIES}
+        tasks={tasks}
+        deleteTask={deleteTask}
+        onTaskFormSubmit={onTaskFormSubmit}
+      />
     </div>
   );
 }
