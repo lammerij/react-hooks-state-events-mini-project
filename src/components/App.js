@@ -35,7 +35,7 @@ function App() {
       setSelectedCategory={setSelectedCategory}
 
        />
-      <NewTaskForm CATEGORIES={CATEGORIES} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+      <NewTaskForm CATEGORIES={CATEGORIES.filter((category) =>{if (selectedCategory === "All") return false; return })} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
       <TaskList filteredTasks={filteredTasks} CATEGORIES={CATEGORIES} tasks={tasks}  deleteTask={deleteTask} />
     </div>
   );
