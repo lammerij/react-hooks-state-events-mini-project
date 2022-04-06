@@ -11,7 +11,7 @@ import Task from "./Task";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [tasks, setTasks] = useState(TASKS);
-  const filteredTasks = TASKS.filter((task) => {
+  const filteredTasks = tasks.filter((task) => {
     if (selectedCategory === "All") return true;
 
     return task.category === selectedCategory;
@@ -34,12 +34,12 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter
-        CATEGORIES={CATEGORIES}
+        categories={CATEGORIES}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
       <NewTaskForm
-        CATEGORIES={CATEGORIES.filter((category) => {
+        categories={CATEGORIES.filter((category) => {
           if (category === "All") return false;
           return category != "All";
         })}
@@ -48,9 +48,8 @@ function App() {
         onTaskFormSubmit={onTaskFormSubmit}
       />
       <TaskList
-        filteredTasks={filteredTasks}
+        tasks={filteredTasks}
         CATEGORIES={CATEGORIES}
-        tasks={tasks}
         deleteTask={deleteTask}
         onTaskFormSubmit={onTaskFormSubmit}
       />

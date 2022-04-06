@@ -1,7 +1,7 @@
 import React from "react";
 
-function CategoryFilter({CATEGORIES, selectedCategory, setSelectedCategory, filteredTasks}){ 
-  const listOfCategories = CATEGORIES.map((category) => {
+function CategoryFilter({categories, selectedCategory, setSelectedCategory, filteredTasks}){ 
+  const listOfCategories = categories.map((category) => {
     const className = category === selectedCategory ? "selected" : null;
     
 

@@ -2,7 +2,7 @@ import React from "react";
 import CategoryFilter from "./CategoryFilter";
 import Task from "./Task";
 
-function TaskList({ filteredTasks, deleteTask, }) {
+function TaskList({ tasks, deleteTask, }) {
   // console.log(CATEGORIES, TASKS);
 
 
@@ -10,7 +10,7 @@ function TaskList({ filteredTasks, deleteTask, }) {
 
   return (
     <div className="tasks">
-      {filteredTasks.map((task) => {
+      {tasks.map((task) => {
         return (
           <Task
             key={task.text}

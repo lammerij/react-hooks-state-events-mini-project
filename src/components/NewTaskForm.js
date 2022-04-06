@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function NewTaskForm({
-  CATEGORIES,
+  categories,
   selectedCategory,
   setSelectedCategory,
   onTaskFormSubmit,
@@ -9,10 +9,10 @@ function NewTaskForm({
   const [addedTask, setAddedTask] = useState("");
   const [newTaskCategory, setTaskCategory] = useState("Code");
   const newTask = {
-    name: addedTask,
+    text: addedTask,
     category: newTaskCategory,
   };
-  const dropDownCategories = CATEGORIES.map((category) => {
+  const dropDownCategories = categories.map((category) => {
     const className = category === selectedCategory ? "selected" : null;
     return (
       <option
@@ -38,7 +38,7 @@ function NewTaskForm({
   function handleSubmit(event) {
     event.preventDefault();
     const newTask = {
-      name: addedTask,
+      text: addedTask,
       category: newTaskCategory,
     };
     onTaskFormSubmit(newTask);
